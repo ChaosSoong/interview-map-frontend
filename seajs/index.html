@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>seajs-demo</title>
+    <script src="sea-module/sea.js"></script>
+    <script>
+        // // 不使用别名
+        // seajs.use("./static/main.js")
+
+        // 使用别名
+        seajs.config({
+            alias:{
+                'module1':'../static/module1.js',
+                'module2':'../static/module2.js',
+                'main': './static/main',
+                'jquery': 'jquery-1.11.0.min.js'
+            }
+        })
+        console.log(seajs)
+        // seajs.use("main")
+        // 使用多个模块，加载完后执行回调
+        seajs.use(["main","jquery"],function(m, j){
+            console.log(m)
+            console.log(j)
+        })
+    </script>
+</head>
+<body>
+    <div id="app">seajs-demo</div>
+</body>
+</html>
