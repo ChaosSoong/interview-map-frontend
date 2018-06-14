@@ -4,20 +4,17 @@ require.config({
     jquery: '../../third-module/jquery-1.11.0.min',
     module1: 'module1',
     module2: 'module2',
-    alert: 'noModule'
+    myFun: 'noModule'
   },
   shim: {
-    alert: {
+    myFun: {
       deps: [],
       exports: 'myFun'
     }
-  }
+  },
+  waitSeconds: 15
 });
-require(['alert'], function () {
-  var m = new myFun(1, 2);
-  alert(m.add());
-});
-require(['module1', 'jquery', 'module2'], function (m1, j, m2) {
+require(['module1', 'jquery', 'module2', 'myFun'], function (m1, j, m2, myFun) {
   j("#app").css('color', 'red');
   m1();
   m2();
